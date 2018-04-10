@@ -1,0 +1,8 @@
+% Autómata Finito
+Alfabeto { a , b,	c,d, 5} 
+% Comentari
+Estados { 245 , a} 
+Transiciones { (0 , b ; 	0), (0 ,	 a ; 1), (1 , b ; 1), (1 , a ; 0) } 
+Inicial { 0 	} 
+Finales { 1 } 
+
