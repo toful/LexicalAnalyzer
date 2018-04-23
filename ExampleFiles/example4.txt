@@ -1,0 +1,6 @@
+%Exemple Autómata Finit Erroni
+Alfabeto { a , b } 
+Estados { } 
+Transiciones { (0 , b ; 0), (0 , a ; 1), (1 , b ; 1), (1 , a ; 0) } 
+Inicial { 0 } 
+Finales { 1 , 2,3 ,a } 

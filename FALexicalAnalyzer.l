@@ -29,7 +29,7 @@ TRANSICION	"("{ESPACIOS}{NUMERO}{ESPACIOS}","{ESPACIOS}{SIMBOLO}{ESPACIOS}";"{ES
 {inicial}			{printf("Estat Inicial"); simbol = 0;}
 {final}				{printf("Estats Finals"); simbol = 0;}
 {COMENTARIO}(.)*{LINIA}		{printf("S'ha detectat un Comentari \n");}
-{TRANSICION}			{printf("Transició"); simbol = 0;}
+{TRANSICION}			{printf("Transició");}
 {NUMERO}			{
 if(simbol == 0){
 	printf("Número");

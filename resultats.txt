@@ -1,0 +1,75 @@
+S'ha detectat un Comentari 
+Alfabet{Símbol,Símbol}
+Estats{Número}
+Transicions{Transició,Transició,Transició,Transició}
+Estat Inicial{Número}
+Estats Finals{Número}
+Número d'estats: 2
+
+---Testing example file 2:---
+
+S'ha detectat un Comentari 
+Alfabet{Símbol,Símbol,Símbol,Símbol,Símbol}
+S'ha detectat un Comentari 
+Estats{Número,Símbol}
+Transicions{Transició,Transició,Transició,Transició}
+Estat Inicial{Número}
+Estats Finals{Número}
+
+
+Número d'estats: 245
+
+---Testing example file 3:---
+
+S'ha detectat un Comentari 
+Alfabet{Símbol,Símbol}
+Estats{Número,NúmeroNúmero}
+Transicions{Transició,Transició,Transició,Transició}
+Estat Inicial{Número}
+Estats Finals{Número}
+Número d'estats: 2
+
+---Testing example file 4:---
+
+S'ha detectat un Comentari 
+Alfabet{Símbol,Símbol}
+Estats{}
+Transicions{Transició,Transició,Transició,Transició}
+Estat Inicial{Número}
+Estats Finals{Número,Número,Número,Símbol}
+
+Número d'estats: 0
+
+---Testing example file 5:---
+
+S'ha detectat un Comentari 
+Alfabet{Símbol,Símbol}
+Estats{,Número}
+Transicions{(Número,SímbolNúmero),(Número,Símbol;Símbol),(Símbol,Número;Símbol),Transició}
+Estat Inicial{Número,Número}
+Estats Finals{Número}
+
+Número d'estats: 2
+
+---Testing example file 6:---
+
+S'ha detectat un Comentari 
+Alfabet{Símbol,Símbol}
+Estats{Símbol}
+Transicions{Transició,Transició,Transició,Transició}
+Estat Inicial{Número}
+Estats Finals{Número}
+
+Número d'estats: 0
+
+---Testing example file 7:---
+
+S'ha detectat un Comentari 
+S'ha detectat un Comentari 
+Alfabet{Transició}
+Estats{Transició}
+Transicions{Transició,Transició,Transició,Transició}
+Estat Inicial{Número}
+Estats Finals{Número}
+
+Número d'estats: 0

@@ -1,0 +1,7 @@
+%Exemple Autómata Finit Erroni
+%%Doble comentari
+Alfabeto { (0 , b ; 1)} 
+Estados {( 0 , b ; 1 ) } 
+Transiciones { (0 , b ; 0), (0 , a ; 1), (1 , b ; 1), (1 , a ; 0) } 
+Inicial { 0 } 
+Finales { 1 } 
