@@ -2,6 +2,7 @@
 	int i;
 	int estat = 0;
 	int num_estats;
+	int simbol = 0;
 %}
 
 alfabeto	[Aa][Ll][Ff][Aa][Bb][Ee][Tt][Oo]
@@ -22,14 +23,24 @@ COMA		","
 TRANSICION	"("{ESPACIOS}{NUMERO}{ESPACIOS}","{ESPACIOS}{SIMBOLO}{ESPACIOS}";"{ESPACIOS}{NUMERO}{ESPACIOS}")"
 
 %%
-{alfabeto}				{printf("Alfabet");}
-{estados}				{printf("Estats"); estat = 1;}
-{transiciones}			{printf("Transicions");}
-{inicial}				{printf("Estat Inicial");}
-{final}					{printf("Estats Finals");}
-{COMENTARIO}(.)*{LINIA}	{printf("S'ha detectat un Comentari \n");}
-{TRANSICION}			{printf("Transició");}
-{NUMERO}				{printf("Número");if( estat == 1 ){ for(i=0; i<yyleng; i++) num_estats=num_estats*10+(yytext[i]-48); estat=0;}}
+{alfabeto}			{printf("Alfabet"); simbol = 1;}
+{estados}			{printf("Estats"); estat = 1; simbol = 0;}
+{transiciones}			{printf("Transicions"); simbol = 0;}
+{inicial}			{printf("Estat Inicial"); simbol = 0;}
+{final}				{printf("Estats Finals"); simbol = 0;}
+{COMENTARIO}(.)*{LINIA}		{printf("S'ha detectat un Comentari \n");}
+{TRANSICION}			{printf("Transició"); simbol = 0;}
+{NUMERO}			{
+if(simbol == 0){
+	printf("Número");
+	if( estat == 1 )
+	{ 
+		for(i=0; i<yyleng; i++) num_estats=num_estats*10+(yytext[i]-48); 
+		estat=0;
+	}
+}
+else{printf("Símbol");}
+}
 {SIMBOLO}				{printf("Símbol");}
 {COMA}					{printf(",");}
 {ABRIR}					{printf("{");}

@@ -514,7 +514,8 @@ char *yytext;
 	int i;
 	int estat = 0;
 	int num_estats;
-#line 518 "lex.yy.c"
+	int simbol = 0;
+#line 519 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -732,9 +733,9 @@ YY_DECL
 		}
 
 	{
-#line 24 "FALexicalAnalyzer.l"
+#line 25 "FALexicalAnalyzer.l"
 
-#line 738 "lex.yy.c"
+#line 739 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -793,76 +794,86 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 25 "FALexicalAnalyzer.l"
-{printf("Alfabet");}
+#line 26 "FALexicalAnalyzer.l"
+{printf("Alfabet"); simbol = 1;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 26 "FALexicalAnalyzer.l"
-{printf("Estats"); estat = 1;}
+#line 27 "FALexicalAnalyzer.l"
+{printf("Estats"); estat = 1; simbol = 0;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 27 "FALexicalAnalyzer.l"
-{printf("Transicions");}
+#line 28 "FALexicalAnalyzer.l"
+{printf("Transicions"); simbol = 0;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 28 "FALexicalAnalyzer.l"
-{printf("Estat Inicial");}
+#line 29 "FALexicalAnalyzer.l"
+{printf("Estat Inicial"); simbol = 0;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 29 "FALexicalAnalyzer.l"
-{printf("Estats Finals");}
+#line 30 "FALexicalAnalyzer.l"
+{printf("Estats Finals"); simbol = 0;}
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 30 "FALexicalAnalyzer.l"
+#line 31 "FALexicalAnalyzer.l"
 {printf("S'ha detectat un Comentari \n");}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 31 "FALexicalAnalyzer.l"
-{printf("Transició");}
+#line 32 "FALexicalAnalyzer.l"
+{printf("Transició"); simbol = 0;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 32 "FALexicalAnalyzer.l"
-{printf("Número");if( estat == 1 ){ for(i=0; i<yyleng; i++) num_estats=num_estats*10+(yytext[i]-48); estat=0;}}
+#line 33 "FALexicalAnalyzer.l"
+{
+if(simbol == 0){
+	printf("Número");
+	if( estat == 1 )
+	{ 
+		for(i=0; i<yyleng; i++) num_estats=num_estats*10+(yytext[i]-48); 
+		estat=0;
+	}
+}
+else{printf("Símbol");}
+}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 33 "FALexicalAnalyzer.l"
+#line 44 "FALexicalAnalyzer.l"
 {printf("Símbol");}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 34 "FALexicalAnalyzer.l"
+#line 45 "FALexicalAnalyzer.l"
 {printf(",");}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 35 "FALexicalAnalyzer.l"
+#line 46 "FALexicalAnalyzer.l"
 {printf("{");}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 36 "FALexicalAnalyzer.l"
+#line 47 "FALexicalAnalyzer.l"
 {printf("}");}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 37 "FALexicalAnalyzer.l"
+#line 48 "FALexicalAnalyzer.l"
 {}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 39 "FALexicalAnalyzer.l"
+#line 50 "FALexicalAnalyzer.l"
 ECHO;
 	YY_BREAK
-#line 866 "lex.yy.c"
+#line 877 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1863,7 +1874,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 39 "FALexicalAnalyzer.l"
+#line 50 "FALexicalAnalyzer.l"
 
 
 main(argc, argv)
@@ -1879,3 +1890,4 @@ char **argv;
 	yylex();
 	printf("\nNúmero d'estats: %i\n", num_estats);
 }
+
